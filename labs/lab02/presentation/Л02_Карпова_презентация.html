@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Карпова А. А.">
+  <title>Лабораторная работа №1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/beige.css" id="theme">
+  
+  
+  
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Лабораторная работа №1</h1>
+  <p class="subtitle">Операционные системы</p>
+  <p class="author">Карпова А. А.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="institute">Объединённый институт ядерных исследований,
+Дубна, Россия</p>
+  <p class="date">02 марта 2024</p>
+</section>
+
+<section id="цель-работы" class="slide level1">
+<h1>Цель работы</h1>
+<p>Изучить идеологию и применение средств контроля версий. Освоить
+умения по работе с git.</p>
+</section>
+<section id="задание" class="slide level1">
+<h1>Задание</h1>
+<ol type="1">
+<li>Установка ПО</li>
+<li>Базовая настройка git</li>
+<li>Создание ключей ssh</li>
+<li>Создание ключей pgp</li>
+<li>Добавление ключа PGP на гитхаб</li>
+<li>Настройка автоматических подписей коммитов git</li>
+<li>Настройка gh</li>
+<li>Шаблон для рабочего пространства</li>
+<li>Ответы на контрольные вопросы</li>
+</ol>
+<h2 id="выполнение-лабораторной-работы.-установка-по">Выполнение
+лабораторной работы. Установка ПО</h2>
+<p>Устанавливаю гит с помощью dnf install git</p>
+<p>Устанавливаю gh с помощью dnf install gh</p>
+<h2
+id="выполнение-лабораторной-работы.-базовая-настройка-git">Выполнение
+лабораторной работы. Базовая настройка git</h2>
+<p>Задаю имя и email владельца репозитория с помощью git config –global
+user.name “Name Surname” и git config –global user.email “work@mail”</p>
+<p>Настраиваю utf-8 в выводе сообщений git с помощью git config –global
+core.quotepath false</p>
+<p>Задаю имя начальной ветки с помощью git config –global
+init.defaultBranch master</p>
+<p>Параметр autocrlf с помощью git config –global core.autocrlf input
+Параметр safecrlf с помощью git config –global core.safecrlf warn</p>
+<h2 id="выполнение-лабораторной-работы.-создание-ключей-ssh">Выполнение
+лабораторной работы. Создание ключей ssh</h2>
+<p>Создаю ssh ключ по алгоритму rsa с ключём размером 4096 бит:</p>
+<p>ssh-keygen -t rsa -b 4096</p>
+<p>по алгоритму ed25519:</p>
+<p>ssh-keygen -t ed25519</p>
+<h2 id="выполнение-лабораторной-работы.-создание-ключей-pgp">Выполнение
+лабораторной работы. Создание ключей pgp</h2>
+<p>Генерирую ключ</p>
+<p>gpg –full-generate-key</p>
+<p>Из предложенных опций выбираю:</p>
+<pre><code>тип RSA and RSA;
+размер 4096;
+выберите срок действия; значение по умолчанию — 0 (срок действия не истекает никогда).</code></pre>
+<p>GPG запросит личную информацию, которая сохранится в ключе:</p>
+<pre><code>Имя (не менее 5 символов).
+Адрес электронной почты.
+    При вводе email убеждаюсь, что он соответствует адресу, используемому на GitHub.
+Комментарий. Можно ввести что угодно или нажать клавишу ввода, чтобы оставить это поле пустым.</code></pre>
+<h2
+id="выполнение-лабораторной-работы.-добавление-pgp-ключа-в-github">Выполнение
+лабораторной работы. Добавление PGP ключа в GitHub</h2>
+<p>Вывожу список ключей и копируем отпечаток приватного ключа:</p>
+<p>gpg –list-secret-keys –keyid-format LONG</p>
+<p>Отпечаток ключа — это последовательность байтов, используемая для
+идентификации более длинного, по сравнению с самим отпечатком ключа.</p>
+<p>Копирую мой сгенерированный PGP ключ в буфер обмена:</p>
+<p>gpg –armor –export <PGP Fingerprint> | xclip -sel clip</p>
+<p>Перехожу в настройки GitHub (https://github.com/settings/keys),
+нажимаю на кнопку New GPG key и вставляю полученный ключ в поле
+ввода.</p>
+<h2
+id="выполнение-лабораторной-работы.-настройка-автоматических-подписей-коммитов-git">Выполнение
+лабораторной работы. Настройка автоматических подписей коммитов git</h2>
+<p>Используя введёный email, указываю Git применять его при подписи
+коммитов:</p>
+<p>git config –global user.signingkey <PGP Fingerprint> git config
+–global commit.gpgsign true git config –global gpg.program $(which
+gpg2)</p>
+<h2 id="выполнение-лабораторной-работы.-настройка-gh">Выполнение
+лабораторной работы. Настройка gh</h2>
+<p>Для начала необходимо авторизоваться</p>
+<p>gh auth login</p>
+<p>Утилита задаст несколько наводящих вопросов. Авторизоваться можно
+через браузер.</p>
+<h2
+id="выполнение-лабораторной-работы.-сознание-репозитория-курса-на-основе-шаблона">Выполнение
+лабораторной работы. Сознание репозитория курса на основе шаблона</h2>
+<p>Необходимо создать шаблон рабочего пространства.</p>
+<p>Например, для 2022–2023 учебного года и предмета «Операционные
+системы» (код предмета os-intro) создание репозитория примет следующий
+вид:</p>
+<p>mkdir -p ~/work/study/2022-2023/“Операционные системы” cd
+~/work/study/2022-2023/“Операционные системы” gh repo create
+study_2022-2023_os-intro
+–template=yamadharma/course-directory-student-template –public git clone
+–recursive git@github.com:<owner>/study_2022-2023_os-intro.git
+os-intro</p>
+<h2
+id="выполнение-лабораторной-работы.-настройка-каталога-курса">Выполнение
+лабораторной работы. Настройка каталога курса</h2>
+<p>Перехожу в каталог курса:</p>
+<p>cd ~/work/study/2022-2023/“Операционные системы”/os-intro</p>
+<p>Удаляю лишние файлы:</p>
+<p>rm package.json</p>
+<p>Создаю необходимые каталоги:</p>
+<p>echo os-intro &gt; COURSE make prepare</p>
+<p>Отправляю файлы на сервер:</p>
+<p>git add . git commit -am ‘feat(main): make course structure’ git
+push</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Что такое системы контроля версий (VCS) и для решения каких задач они
+предназначаются? - Система контроля версий (Version Control System, VCS)
+представляет собой программное обеспечение, которое позволяет
+отслеживать изменения в документах, при необходимости производить их
+откат, определять, кто и когда внес исправления и т. п</p>
+<p>Хранилище – репозиторий, хранилище версий, в нем хранятся все
+документы, включая историю их изменения и прочей служебной информацией.
+commit – отслеживание изменений, сохраняет разницу в изменениях. История
+– хранит все изменения в проекте и позволяет при необходимости
+вернуться/обратиться к нужным данным. Рабочая копия – копия проекта,
+основанная на версии из хранилища, чаще всего последней версии.</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы-1">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Централизованные VCS (например: CVS, TFS, AccuRev) – одно основное
+хранилище всего проекта. Каждый пользователь копирует себе необходимые
+ему файлы из этого репозитория, изменяет, затем добавляет изменения
+обратно в хранилище. Децентрализованные VCS (например: Git, Bazaar) – у
+каждого пользователя свой вариант репозитория (возможно несколько
+вариантов), есть возможность добавлять и забирать изменения из любого
+репозитория. В отличие от классических, в распределенных
+(децентралиованных) системах контроля версий центральный репозиторий не
+является обязательным.</p>
+<p>Сначала создается и подключается удаленный репозиторий, затем по мере
+изменения проекта эти изменения отправляются на сервер.</p>
+<p>Участник проекта перед началом работы получает нужную ему версию
+проекта в хранилище, с помощью определенных команд, после внесения
+изменений пользователь размещает новую версию в хранилище. При этом
+предыдущие версии не удаляются. К ним можно вернуться в любой
+момент.</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы-2">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Хранение информации о всех изменениях в вашем коде, обеспечение
+удобства командной работы над кодом.</p>
+<p>Создание основного дерева репозитория: git init</p>
+<p>Получение обновлений (изменений) текущего дерева из центрального
+репозитория: git pull</p>
+<p>Отправка всех произведённых изменений локального дерева в центральный
+репозиторий: git push</p>
+<p>Просмотр списка изменённых файлов в текущей директории: git
+status</p>
+<p>Просмотр текущих изменений: git diff</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы-3">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Сохранение текущих изменений: добавить все изменённые и/или созданные
+файлы и/или каталоги: git add .</p>
+<p>добавить конкретные изменённые и/или созданные файлы и/или каталоги:
+git add имена_файлов</p>
+<p>удалить файл и/или каталог из индекса репозитория (при этом файл
+и/или каталог остаётся в локальной директории): git rm имена_файлов</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы-4">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Сохранение добавленных изменений:</p>
+<p>сохранить все добавленные изменения и все изменённые файлы: git
+commit -am ‘Описание коммита’</p>
+<p>сохранить добавленные изменения с внесением комментария через
+встроенный редактор: git commit</p>
+<p>создание новой ветки, базирующейся на текущей: git checkout -b
+имя_ветки</p>
+<p>переключение на некоторую ветку: git checkout имя_ветки (при
+переключении на ветку, которой ещё нет в локальном репозитории, она
+будет создана и связана с удалённой)</p>
+<p>отправка изменений конкретной ветки в центральный репозиторий: git
+push origin имя_ветки</p>
+<p>слияние ветки с текущим деревом: git merge –no-ff имя_ветки</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы-5">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Удаление ветки:</p>
+<p>удаление локальной уже слитой с основным деревом ветки: git branch -d
+имя_ветки</p>
+<p>принудительное удаление локальной ветки: git branch -D имя_ветки</p>
+<p>удаление ветки с центрального репозитория: git push origin
+:имя_ветки</p>
+<p>git push -all отправляем из локального репозитория все сохраненные
+изменения в центральный репозиторий, предварительно создав локальный
+репозиторий и сделав предварительную конфигурацию.</p>
+<h2
+id="выполнение-лабораторной-работы.-ответы-на-котрольные-вопросы-6">Выполнение
+лабораторной работы. Ответы на котрольные вопросы</h2>
+<p>Ветвление - один из параллельных участков в одном хранилище,
+исходящих из одной версии, обычно есть главная ветка. Между ветками, т.
+е. их концами возможно их слияние. Используются для разработки новых
+функций.</p>
+<p>Во время работы над проектом могут создаваться файлы, которые не
+следуют добавлять в репозиторий. Например, временные файлы. Можно
+прописать шаблоны игнорируемых при добавлении в репозиторий типов файлов
+в файл .gitignore с помощью сервисов</p>
+</section>
+<section id="выводы" class="slide level1">
+<h1>Выводы</h1>
+<p>В ходе этой работы я изучитла идеологию и применение средств контроля
+версий. Освоила умения по работе с git.</p>
+</section>
+<section id="список-литературы" class="slide level1 unnumbered">
+<h1 class="unnumbered">Список литературы</h1>
+<p>Лабораторная работа № 2 [Электронный ресурс] URL:
+https://esystem.rudn.ru/mod/page/view.php?id=970819</p>
+<div id="refs" role="doc-bibliography">
+
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
