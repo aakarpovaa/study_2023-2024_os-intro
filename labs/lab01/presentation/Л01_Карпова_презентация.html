@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Карпова А. А.">
+  <title>Лабораторная работа №1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/beige.css" id="theme">
+  
+  
+  
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Лабораторная работа №1</h1>
+  <p class="subtitle">Операционные системы</p>
+  <p class="author">Карпова А. А.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="institute">Объединённый институт ядерных исследований,
+Дубна, Россия</p>
+  <p class="date">02 марта 2024</p>
+</section>
+
+<section class="slide level1">
+
+<h2 id="цель-работы">Цель работы</h2>
+<p>Целью данной работы является приобретение практических навыков
+установки операционной системы на виртуальную машину, настройки
+минимально необходимых для дальнейшей работы сервисов.</p>
+<h2 id="задание">Задание</h2>
+<ol type="1">
+<li>Установка ВМ</li>
+<li>Установка ОС в ВМ</li>
+<li>Установка драйверов</li>
+<li>Настройка раскладки клавиатуры</li>
+<li>Установка имени пользователя и хоста</li>
+<li>Подключение общей папки</li>
+<li>Установка pandoc и texlive</li>
+<li>Домашнее задание и ответы на контрольные вопросы</li>
+</ol>
+<h2 id="выполнение-лабораторной-работы.-установка-вм">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Cоздаю виртуальную машину (рис. 1).</p>
+<figure>
+<img data-src="image/1.png" id="fig:001" style="width:70.0%"
+alt="Окно создания ВМ" />
+<figcaption aria-hidden="true">Окно создания ВМ</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-1">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Далее устанавливаю необходимый мне объём памяти. В моём случае -
+5131мб (рис. 2).</p>
+<figure>
+<img data-src="image/2.png" id="fig:002" style="width:70.0%"
+alt="Установка объёма памяти" />
+<figcaption aria-hidden="true">Установка объёма памяти</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-2">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Устанавливаю размер жёсткого диска - 80гб (рис. 3).</p>
+<figure>
+<img data-src="image/3.png" id="fig:003" style="width:70.0%"
+alt="Установка размера ЖД" />
+<figcaption aria-hidden="true">Установка размера ЖД</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-3">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Всё установила, теперь перехожу в настройки ВМ и захожу в категорию
+Дисплей, ставлю видеопамять на 128мб и включаю 3-D ускорение. (рис.
+4).</p>
+<figure>
+<img data-src="image/4.png" id="fig:004" style="width:70.0%"
+alt="Настройка ВМ" />
+<figcaption aria-hidden="true">Настройка ВМ</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-4">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Запускаю ВМ и передо мной высвечивается такое окно. Выбираю первое
+используя стрелочку вверх и Enter. (рис. 5).</p>
+<figure>
+<img data-src="image/5.png" id="fig:005" style="width:70.0%"
+alt="Запуск" />
+<figcaption aria-hidden="true">Запуск</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-5">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>После запуска откроется окошко с предложением установить Fedora, я
+нажимаю на кнопку установки, жду некоторое время и появляется окно с
+настройкой Федоры (рис. 6).</p>
+<figure>
+<img data-src="image/6.png" id="fig:006" style="width:70.0%"
+alt="Настройка Fedora" />
+<figcaption aria-hidden="true">Настройка Fedora</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-6">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Настроила всё, что необходимо и жду когда установится (рис. 7).</p>
+<figure>
+<img data-src="image/7.png" id="fig:007" style="width:70.0%"
+alt="Установка" />
+<figcaption aria-hidden="true">Установка</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-7">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>После установки перезагружаю ВМ. После перезапузка снова появится
+окно, но уже с настройкой пользователя Fеdora (рис. 8).</p>
+<figure>
+<img data-src="image/8.png" id="fig:008" style="width:70.0%"
+alt="Настройка пользователя" />
+<figcaption aria-hidden="true">Настройка пользователя</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-8">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Устанавливаю имя пользователя (рис. 9).</p>
+<figure>
+<img data-src="image/9.png" id="fig:009" style="width:70.0%"
+alt="Настройка имени пользователя" />
+<figcaption aria-hidden="true">Настройка имени пользователя</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-вм-9">Выполнение
+лабораторной работы. Установка ВМ</h2>
+<p>Устанавливаю пароль (рис. 10).</p>
+<figure>
+<img data-src="image/10.png" id="fig:010" style="width:70.0%"
+alt="Настройка пароля" />
+<figcaption aria-hidden="true">Настройка пароля</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-ос-в-вм">Выполнение
+лабораторной работы. Установка ОС в ВМ</h2>
+<p>Перехожу в root с помощь команды sido -i и обновляю все пакеты. (рис.
+11).</p>
+<figure>
+<img data-src="image/11.png" id="fig:011" style="width:70.0%"
+alt="Обновление пакетов" />
+<figcaption aria-hidden="true">Обновление пакетов</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-ос-в-вм-1">Выполнение
+лабораторной работы. Установка ОС в ВМ</h2>
+<p>Устанавливаю программы для удобства в работе (рис. 12).</p>
+<figure>
+<img data-src="image/12.png" id="fig:012" style="width:70.0%"
+alt="Установка" />
+<figcaption aria-hidden="true">Установка</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-ос-в-вм-2">Выполнение
+лабораторной работы. Установка ОС в ВМ</h2>
+<p>Устанавливаю ПО (рис. 13).</p>
+<figure>
+<img data-src="image/13.png" id="fig:013" style="width:70.0%"
+alt="Установка ПО" />
+<figcaption aria-hidden="true">Установка ПО</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-ос-в-вм-3">Выполнение
+лабораторной работы. Установка ОС в ВМ</h2>
+<p>Запускаю таймер (рис. 14).</p>
+<figure>
+<img data-src="image/14.png" id="fig:014" style="width:70.0%"
+alt="Запуск таймера" />
+<figcaption aria-hidden="true">Запуск таймера</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-ос-в-вм-4">Выполнение
+лабораторной работы. Установка ОС в ВМ</h2>
+<p>В файле /etc/selinux/config замените значение SELINUX=enforcing на
+SELINUX=permissive и перезагружаю ВМ (рис. 15).</p>
+<figure>
+<img data-src="image/15.png" id="fig:015" style="width:70.0%"
+alt="Редактирование файла" />
+<figcaption aria-hidden="true">Редактирование файла</figcaption>
+</figure>
+<h2 id="выполнение-лабораторной-работы.-установка-драйверов">Выполнение
+лабораторной работы. Установка драйверов</h2>
+<p>Снова перехожу в root и устанавливаю средства разработки (рис.
+16).</p>
+<figure>
+<img data-src="image/16.png" id="fig:016" style="width:70.0%"
+alt="Установка средств разработки" />
+<figcaption aria-hidden="true">Установка средств разработки</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-установка-драйверов-1">Выполнение
+лабораторной работы. Установка драйверов</h2>
+<p>Далее устанавливаю пакет DKMS (рис. 17).</p>
+<figure>
+<img data-src="image/17.png" id="fig:017" style="width:70.0%"
+alt="Установка пакета" />
+<figcaption aria-hidden="true">Установка пакета</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-установка-драйверов-2">Выполнение
+лабораторной работы. Установка драйверов</h2>
+<p>В меню виртуальной машины подключаю образ диска дополнений гостевой
+ОС (рис. 18).</p>
+<figure>
+<img data-src="image/18.png" id="fig:018" style="width:70.0%"
+alt="Подключение ОД" />
+<figcaption aria-hidden="true">Подключение ОД</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-установка-драйверов-3">Выполнение
+лабораторной работы. Установка драйверов</h2>
+<p>Монтирую диск и устанавливаю драйвера, перезагружаю ВМ (рис. 19).</p>
+<figure>
+<img data-src="image/19.png" id="fig:019" style="width:70.0%"
+alt="Монтирование и установка" />
+<figcaption aria-hidden="true">Монтирование и установка</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-настройка-раскладки-клавиатуры">Выполнение
+лабораторной работы. Настройка раскладки клавиатуры</h2>
+<p>Запускаю терминальный мультиплексор. Переключаюсь на
+супер-пользователя, перехожу в etc/X11/xorg.conf.d/00-keyboard.conf и
+редактирую файл. Снова перезапускаю ВМ (рис. 20).</p>
+<figure>
+<img data-src="image/20.png" id="fig:020" style="width:70.0%"
+alt="Редактирование" />
+<figcaption aria-hidden="true">Редактирование</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-установка-имени-пользователя-и-названия-хоста">Выполнение
+лабораторной работы. Установка имени пользователя и названия хоста</h2>
+<p>Запускаю терминальный мультиплексор. Переключаюсь на
+супер-пользователя. Создаю пользователя и пароль для него(как оказалось
+всё уже существует). Поэтому дальше устанавливаю имя хоста (рис. 21)
+(рис. 22).</p>
+<figure>
+<img data-src="image/21.png" id="fig:021" style="width:70.0%"
+alt="Установка имени п. и пароля + установка имени хоста" />
+<figcaption aria-hidden="true">Установка имени п. и пароля + установка
+имени хоста</figcaption>
+</figure>
+<figure>
+<img data-src="image/22.png" id="fig:022" style="width:70.0%"
+alt="Проверка" />
+<figcaption aria-hidden="true">Проверка</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-подключение-общей-папки">Выполнение
+лабораторной работы. Подключение общей папки</h2>
+<p>Внутри виртуальной машины добавляю своего пользователя в группу
+vboxsf. В хостовой системе подключаю разделяемую папку, перезапускаю ВМ
+(рис. 23).</p>
+<figure>
+<img data-src="image/23.png" id="fig:023" style="width:70.0%"
+alt="Подключение общей папки" />
+<figcaption aria-hidden="true">Подключение общей папки</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-установка-pandoc-и-texlive">Выполнение
+лабораторной работы. Установка pandoc и texlive</h2>
+<p>Устанваливаю pandoc и его составляющие (рис. 24).</p>
+<figure>
+<img data-src="image/24.png" id="fig:024" style="width:70.0%"
+alt="Установка pandoc" />
+<figcaption aria-hidden="true">Установка pandoc</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-установка-pandoc-и-texlive-1">Выполнение
+лабораторной работы. Установка pandoc и texlive</h2>
+<p>Далее устанавливаю texlive (рис. 25).</p>
+<figure>
+<img data-src="image/25.png" id="fig:025" style="width:70.0%"
+alt="Установка texlive" />
+<figcaption aria-hidden="true">Установка texlive</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Необходимо получить след. информацию: 1.Версия ядра Linux (Linux
+version). 2.Частота процессора (Detected Mhz processor). 3.Модель
+процессора (CPU0). 4.Объём доступной оперативной памяти (Memory
+available). 5.Тип обнаруженного гипервизора (Hypervisor detected). 6.Тип
+файловой системы корневого раздела. 7.Последовательность монтирования
+файловых систем.</p>
+<p>Использую dmesg | grep -i “то, что ищем”.</p>
+<p>Версия ядра равняется - см. фото (рис. 26).</p>
+<figure>
+<img data-src="image/26.png" id="fig:026" style="width:70.0%"
+alt="Версия ядра" />
+<figcaption aria-hidden="true">Версия ядра</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-1">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Частота процессора - см. фото (рис. 27).</p>
+<figure>
+<img data-src="image/27.png" id="fig:027" style="width:70.0%"
+alt="Частота процессора" />
+<figcaption aria-hidden="true">Частота процессора</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-2">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Модель процессора - см фото (рис. 28).</p>
+<figure>
+<img data-src="image/28.png" id="fig:028" style="width:70.0%"
+alt="Модуль процессора" />
+<figcaption aria-hidden="true">Модуль процессора</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-3">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Объем доступной ОП - см фото (рис. 29).</p>
+<figure>
+<img data-src="image/29.jpg" id="fig:029" style="width:70.0%"
+alt="Объем доступной памяти" />
+<figcaption aria-hidden="true">Объем доступной памяти</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-4">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Тип обнаруженного гипервизора - см. фото (рис. 30).</p>
+<figure>
+<img data-src="image/30.jpg" id="fig:030" style="width:70.0%"
+alt="Тип обнаруженного гипервизора" />
+<figcaption aria-hidden="true">Тип обнаруженного
+гипервизора</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-5">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Последовательность монтирования файловых систем - см фото (рис.
+31).</p>
+<figure>
+<img data-src="image/31.png" id="fig:031" style="width:70.0%"
+alt="Последовательность монтирования файловых систем" />
+<figcaption aria-hidden="true">Последовательность монтирования файловых
+систем</figcaption>
+</figure>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-6">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<p>Контрольные вопросы:</p>
+<ol type="1">
+<li>Какую информацию содержит учётная запись пользователя? - Учётная
+запись, как правило, содержит сведения, необходимые для опознания
+пользователя при подключении к системе, сведения для авторизации и
+учёта</li>
+</ol>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-7">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<ol start="2" type="1">
+<li>Команды терминала:</li>
+</ol>
+<ul>
+<li>для получения справки по команде? - man: например, man man выдаст
+руководство по данной команде</li>
+<li>для перемещения по файловой системе? - cd: cd work/study</li>
+<li>для просмотра содержимого каталога? - ls: ls work/stydy</li>
+<li>для определения объёма каталога? - du: du /work</li>
+<li>для создания / удаления каталогов / файлов? - mkdir: mkdir work /
+rmdir or rm -vr (если каталог не пустой): rmdir work / rm -vr work / rm
+work</li>
+<li>для задания определённых прав на файл / каталог? - chmod o-r
+month.txt</li>
+<li>для просмотра истории команд? - стрелочки вверх вниз или команда
+history</li>
+</ul>
+<h2
+id="выполнение-лабораторной-работы.-домашнее-задание-и-ответы-на-контрольные-вопросы-8">Выполнение
+лабораторной работы. Домашнее задание и ответы на контрольные
+вопросы</h2>
+<ol start="3" type="1">
+<li>Что такое файловая система? Приведите примеры с краткой
+характеристикой. - Файловая система - структура, используемая ОС для
+организации и управления файлами на устройстве хранения. Примеры: FAT -
+таблица распределения файлов, NTFS - файловая система новой технологии,
+ReFS - Resilient File System.</li>
+<li>Как посмотреть, какие файловые системы подмонтированы в ОС? - Для
+этого есть команда findmnt</li>
+<li>Как удалить зависший процесс? - Сочетание клавиш Ctrl + C</li>
+</ol>
+</section>
+<section id="выводы" class="slide level1">
+<h1>Выводы</h1>
+<p>В ходе данной работы я приобрела практические навыкиустановки
+операционной системы на виртуальную машину, настройки минимально
+необходимых для дальнейшей работы сервисов.</p>
+</section>
+<section id="список-литературы" class="slide level1 unnumbered">
+<h1 class="unnumbered">Список литературы</h1>
+<ol type="1">
+<li>Dash, P. Getting Started with Oracle VM VirtualBox / P. Dash. –
+Packt Publishing Ltd, 2013. – 86 сс.</li>
+<li>Colvin, H. VirtualBox: An Ultimate Guide Book on Virtualization with
+VirtualBox. VirtualBox / H. Colvin. – CreateSpace Independent Publishing
+Platform, 2015. – 70 сс.</li>
+<li>Vugt, S. van. Red Hat RHCSA/RHCE 7 cert guide : Red Hat Enterprise
+Linux 7 (EX200 and EX300) : Certification Guide. Red Hat RHCSA/RHCE 7
+cert guide / S. van Vugt. – Pearson IT Certification, 2016. – 1008
+сс.</li>
+<li>Робачевский, А. Операционная система UNIX / А. Робачевский, С.
+Немнюгин, О. Стесик. – 2-е изд. – Санкт-Петербург : БХВ-Петербург, 2010.
+– 656 сс.</li>
+<li>Немет, Э. Unix и Linux: руководство системного администратора. Unix
+и Linux / Э. Немет, Г. Снайдер, Т.Р. Хейн, Б. Уэйли. – 4-е изд. –
+Вильямс, 2014. – 1312 сс.</li>
+<li>Колисниченко, Д.Н. Самоучитель системного администратора Linux :
+Системный администратор / Д.Н. Колисниченко. – Санкт-Петербург :
+БХВ-Петербург, 2011. – 544 сс.</li>
+<li>Robbins, A. Bash Pocket Reference / A. Robbins. – O’Reilly Media,
+2016. – 156 сс.</li>
+</ol>
+<div id="refs" role="doc-bibliography">
+
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
